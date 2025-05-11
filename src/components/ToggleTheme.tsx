@@ -14,11 +14,10 @@ export default function ThemeToggle() {
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       className={`cursor-pointer rounded border p-2 ${
-        theme === 'dark' ? 'hover:bg-gray-700' : 'hover:bg-gray-200'
+        theme === 'dark'
+          ? 'hover:bg-gray-700'
+          : 'border-gray-400 hover:bg-gray-200'
       }`}
-
-      // todo: delete
-      // className="cursor-pointer rounded bg-gray-300 p-2 hover:opacity-90"
     >
       Включить {theme === 'dark' ? 'светлую' : 'темную'} тему
     </button>
