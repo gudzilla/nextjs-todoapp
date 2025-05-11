@@ -2,6 +2,8 @@
 import { useTheme } from 'next-themes'
 import { TodoItem } from './index'
 import clsx from 'clsx'
+import RemoveIcon from '@/assets/remove-icon.svg'
+import React from 'react'
 
 type TodoListProps = {
   todos: TodoItem[]
@@ -12,6 +14,13 @@ type TodoListProps = {
 export default function TodoList(props: TodoListProps) {
   const { todos, changeStatus, removeItem } = props
   const { theme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
 
   const handleChangeItemStatus = (id: string) => {
     changeStatus(id)
@@ -43,7 +52,12 @@ export default function TodoList(props: TodoListProps) {
             onClick={() => handleRemoveTodoItem(todo.id)}
             className="ml-5"
           >
-            Удалить
+            <RemoveIcon
+              className={clsx(
+                'h-6 w-6 hover:text-red-400',
+                theme === 'light' ? 'text-gray-400' : 'text-gray-200'
+              )}
+            />
           </button>
         </div>
       ))}
