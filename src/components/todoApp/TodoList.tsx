@@ -47,7 +47,14 @@ export default function TodoList(props: TodoListProps) {
               className="mr-5 h-5 w-5 cursor-pointer"
             />
           </div>
-          <span className={todo.isDone ? 'line-through' : ''}>{todo.text}</span>
+          <span
+            className={clsx(
+              'max-w-90 overflow-hidden text-ellipsis break-words text-center',
+              todo.isDone ? 'line-through' : ''
+            )}
+          >
+            {todo.text}
+          </span>
           <button
             onClick={() => handleRemoveTodoItem(todo.id)}
             className="ml-5"

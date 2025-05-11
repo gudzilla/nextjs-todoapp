@@ -10,20 +10,10 @@ export type TodoItem = {
   text: string
 }
 
-const INITIAL_STATE: TodoItem[] = [
-  { id: '1', isDone: false, text: 'Сделать домашку' },
-  {
-    id: '2',
-    isDone: false,
-    text: 'Погулять с собакой Погулять с собакой Погулять с собакой Погулять с собакой Погулять с собакой Погулять с собакой ',
-  },
-  { id: '3', isDone: false, text: 'Пойти в магазин' },
-]
-
 export type TodoList = TodoItem[]
 
 export default function TodoApp() {
-  const [todos, setTodos] = React.useState<TodoList>(INITIAL_STATE)
+  const [todos, setTodos] = React.useState<TodoList>([])
 
   const handleAddTodoItem = (text: string) => {
     setTodos([...todos, { id: crypto.randomUUID(), isDone: false, text: text }])
