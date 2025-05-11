@@ -31,6 +31,17 @@ export default function TodoApp() {
     setTodos(newTodoList)
   }
 
+  React.useEffect(() => {
+    const localTodos = localStorage.getItem('todos')
+    if (localTodos) {
+      setTodos(JSON.parse(localTodos))
+    }
+  }, [])
+
+  React.useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
+
   return (
     <div className="w-full">
       <div className="mb-8 flex justify-between">
