@@ -2,6 +2,7 @@
 import React from 'react'
 import ThemeToggle from '../ToggleTheme'
 import TodoList from './TodoList'
+import AddTodoForm from './AddTodoForm'
 
 export type TodoItem = {
   id: string
@@ -46,7 +47,7 @@ export default function TodoApp() {
         <h1 className="text-3xl">Список задач</h1>
         <ThemeToggle />
       </div>
-      {/* <AddTodoForm /> */}
+      <AddTodoForm addTodoItem={handleAddTodoItem} />
       <TodoList
         todos={todos}
         changeStatus={handleChangeItemStatus}
