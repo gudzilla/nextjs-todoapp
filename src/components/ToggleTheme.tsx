@@ -8,18 +8,19 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => setMounted(true), [])
-  if (!mounted) return null // не рендерим, пока тема не определена
+  if (!mounted) return null
 
   return (
     <button
       onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-      // className={`cursor-pointer rounded border p-2 ${
-      //   theme === 'dark' ? 'hover:bg-blue-400' : 'hover:bg-red-200'
-      // }`}
+      className={`cursor-pointer rounded border p-2 ${
+        theme === 'dark' ? 'hover:bg-gray-700' : 'hover:bg-gray-200'
+      }`}
 
-      className="cursor-pointer rounded bg-green-600 p-2 text-white hover:opacity-90"
+      // todo: delete
+      // className="cursor-pointer rounded bg-gray-300 p-2 hover:opacity-90"
     >
-      Switch to {theme === 'dark' ? 'light' : 'dark'} mode
+      Включить {theme === 'dark' ? 'светлую' : 'темную'} тему
     </button>
   )
 }

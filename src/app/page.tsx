@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import ThemeToggle from '../components/ToggleTheme'
+import TodoApp from '../components/todoApp'
 
 export default function Home() {
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-2 flex flex-col items-center gap-[32px] sm:items-start">
+      <main className="row-start-2 flex max-w-[800px] flex-col items-center gap-[32px] sm:items-start">
         <div className="flex w-full items-center justify-between">
           <div className="bg-gray-500 p-3">
             <Image
@@ -16,13 +17,14 @@ export default function Home() {
               priority
             />
           </div>
-          <ThemeToggle />
         </div>
 
         <ul className="list-inside list-decimal text-center font-[family-name:var(--font-geist-mono)] text-sm/6 sm:text-left">
           <li>Get started by editing .</li>
           <li>Save and see your changes instantly.</li>
         </ul>
+
+        <TodoApp />
 
         {/* <div className="flex flex-col items-center gap-4 sm:flex-row">
           <a
